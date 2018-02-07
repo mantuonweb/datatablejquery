@@ -11,6 +11,13 @@ export class AppComponent {
   constructor(){
     $(document).ready(()=> {
         $('#example').DataTable( {
+          dom: 'Bfrtip',
+          buttons: [
+              'copyHtml5',
+              'excelHtml5',
+              'csvHtml5',
+              'pdfHtml5'
+          ],
             "ajax": '../assets/data/table.json'
         } );
         this.initWebWorker();
