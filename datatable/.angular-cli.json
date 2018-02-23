@@ -22,9 +22,7 @@
         "../node_modules/datatables.net-dt/css/jquery.dataTables.css",
         "styles.css"
       ],
-      "scripts": [
-
-      ],
+      "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
@@ -57,7 +55,8 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
-    "component": {}
+    "styleExt": "scss",
+    "component": {
+    }
   }
 }

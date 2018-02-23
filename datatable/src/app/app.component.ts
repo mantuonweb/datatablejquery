@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'app';
   constructor(){
     $(document).ready(()=> {
-        $('#example').DataTable( {
+       let oTable=$('#example').DataTable({
           dom: 'Bfrtip',
           buttons: [
               'copyHtml5',
@@ -19,8 +19,16 @@ export class AppComponent {
               'pdfHtml5'
           ],
             "ajax": '../assets/data/table.json'
+        });
+        $('#example').on( 'click', 'tbody td:not(:first-child)', function (e) {
+          console.log( oTable.cell( this ).data() );
+          console.log($(e.target).attr({"contenteditable":true}))
         } );
-        this.initWebWorker();
+        $('#example').on( 'blur', 'tbody td:not(:first-child)', function (e) {
+          oTable.cell( this ).data($(e.target).text())
+          console.log($(e.target).attr({"contenteditable":false}))
+        } );
+        //this.initWebWorker();
     });
   }
   initWebWorker(){
